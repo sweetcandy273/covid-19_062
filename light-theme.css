@@ -1,0 +1,253 @@
+/* Light theme styles */
+body.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.light-theme .navbar {
+  background-color: #e9ecef !important; /* Light grey navbar */
+  border-bottom: 1px solid #dee2e6;
+}
+
+.light-theme .navbar-brand,
+.light-theme .nav-link {
+  color: #007bff !important; /* Blue links for better contrast */
+}
+
+.light-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 123, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.light-theme .jumbotron {
+  background-color: #e9ecef; /* Lighter jumbotron */
+  color: #212529;
+}
+
+.light-theme .table {
+  background-color: #fff;
+  color: #212529;
+}
+
+.light-theme .table-hover tbody tr:hover {
+  background-color: #f1f1f1; /* Lighter hover for table rows */
+  color: #212529;
+}
+
+.light-theme .table th,
+.light-theme .table td {
+  border-color: #dee2e6; /* Lighter table borders */
+}
+
+.light-theme .alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffeeba;
+}
+
+.light-theme .alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.light-theme .alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.light-theme .form-control {
+  background-color: #fff;
+  border-color: #ced4da;
+  color: #495057;
+}
+
+.light-theme .btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.light-theme .btn-outline-success:hover {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Ensure text within other elements like blockquotes, code, etc. also adapt if needed */
+.light-theme code, .light-theme pre {
+    color: #212529; /* Example for code blocks */
+    background-color: #e9ecef; /* Light background for code blocks */
+}
+
+.light-theme .navbar-brand:hover, .light-theme .nav-link:hover {
+    color: #0056b3 !important; /* Darker blue on hover */
+}
+
+/* Purple theme styles */
+body.purple-theme {
+  background-color: #f0e6ff; /* Light purple background */
+  color: #4b0082; /* Indigo text */
+}
+
+.purple-theme .navbar {
+  background-color: #d8bfd8 !important; /* Thistle navbar */
+  border-bottom: 1px solid #bfacc8;
+}
+
+.purple-theme .navbar-brand,
+.purple-theme .nav-link {
+  color: #4b0082 !important; /* Indigo links */
+}
+
+.purple-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(75, 0, 130, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.purple-theme .jumbotron {
+  background-color: #e6e6fa; /* Lavender jumbotron */
+  color: #4b0082;
+}
+
+.purple-theme .table {
+  background-color: #fff;
+  color: #4b0082;
+}
+
+.purple-theme .table-hover tbody tr:hover {
+  background-color: #e0d6eb;
+  color: #4b0082;
+}
+
+.purple-theme .table th,
+.purple-theme .table td {
+  border-color: #d8bfd8;
+}
+
+.purple-theme .alert-warning {
+  background-color: #fff0f5; /* Lavender blush for warning */
+  color: #800080; /* Purple for text */
+  border-color: #ffe6f0;
+}
+
+.purple-theme .alert-danger {
+  background-color: #ffe6f0; /* Light pink for danger */
+  color: #c71585; /* Medium violet red for text */
+  border-color: #ffcde0;
+}
+
+.purple-theme .alert-success {
+  background-color: #e6e6fa; /* Lavender for success */
+  color: #483d8b; /* Dark slate blue for text */
+  border-color: #d8d0f8;
+}
+
+.purple-theme .form-control {
+  background-color: #fff;
+  border-color: #d8bfd8;
+  color: #4b0082;
+}
+
+.purple-theme .btn-outline-success { /* Will be changed to a generic class later */
+  color: #800080; /* Purple */
+  border-color: #800080;
+}
+
+.purple-theme .btn-outline-success:hover {
+  color: #fff;
+  background-color: #800080;
+  border-color: #800080;
+}
+
+.purple-theme code, .purple-theme pre {
+    color: #4b0082;
+    background-color: #e6e6fa;
+}
+
+.purple-theme .navbar-brand:hover, .purple-theme .nav-link:hover {
+    color: #800080 !important; /* Darker purple on hover */
+}
+
+
+/* Pink theme styles */
+body.pink-theme {
+  background-color: #fff0f5; /* Lavender blush background */
+  color: #c71585; /* Medium violet red text */
+}
+
+.pink-theme .navbar {
+  background-color: #ffc0cb !important; /* Pink navbar */
+  border-bottom: 1px solid #ffb3c1;
+}
+
+.pink-theme .navbar-brand,
+.pink-theme .nav-link {
+  color: #c71585 !important;
+}
+
+.pink-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(199, 21, 133, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.pink-theme .jumbotron {
+  background-color: #ffe4e1; /* Misty rose jumbotron */
+  color: #c71585;
+}
+
+.pink-theme .table {
+  background-color: #fff;
+  color: #c71585;
+}
+
+.pink-theme .table-hover tbody tr:hover {
+  background-color: #ffdbe0;
+  color: #c71585;
+}
+
+.pink-theme .table th,
+.pink-theme .table td {
+  border-color: #ffc0cb;
+}
+
+.pink-theme .alert-warning {
+  background-color: #fff5e1; /* Lighter pink/orange for warning */
+  color: #db7093; /* Pale violet red for text */
+  border-color: #ffefd5;
+}
+
+.pink-theme .alert-danger {
+  background-color: #ffdde5; /* Very light pink for danger */
+  color: #b03060; /* Maroon for text */
+  border-color: #ffcdd8;
+}
+
+.pink-theme .alert-success {
+  background-color: #ffe4f0; /* Light pink for success */
+  color: #9370db; /* Medium purple for text */
+  border-color: #ffd8e9;
+}
+
+.pink-theme .form-control {
+  background-color: #fff;
+  border-color: #ffc0cb;
+  color: #c71585;
+}
+
+.pink-theme .btn-outline-success { /* Will be changed to a generic class later */
+  color: #ff69b4; /* Hot pink */
+  border-color: #ff69b4;
+}
+
+.pink-theme .btn-outline-success:hover {
+  color: #fff;
+  background-color: #ff69b4;
+  border-color: #ff69b4;
+}
+
+.pink-theme code, .pink-theme pre {
+    color: #c71585;
+    background-color: #ffe4e1;
+}
+
+.pink-theme .navbar-brand:hover, .pink-theme .nav-link:hover {
+    color: #db7093 !important; /* Darker pink on hover */
+}
