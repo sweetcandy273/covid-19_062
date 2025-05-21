@@ -71,7 +71,7 @@
             <h2>Details</h2>
             <p><strong>NAME:</strong> Kanokwan Namsanguan</p>
             <p><strong>DATE OF BIRTH:</strong> 27 March 2000</p>
-            <p><strong>AGE:</strong> 23</p>
+            <p><strong>AGE:</strong> <span id="dynamic-age"></span></p>
         </div>
 
         <div class="about-section contact-minimal" id="contact-section">
@@ -87,6 +87,100 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./theme.js"></script>
-    <!-- Script to populate data can be added here or inline -->
+    <script>
+  function calculateAgeWithMonths(birthDateString) {
+    const birthDate = new Date(birthDateString);
+    const today = new Date();
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+
+    if (months < 0 || (months === 0 && today.getDate() < birthDate.getDate())) {
+      years--;
+      // Adjust months: add 12 months for the borrowed year
+      months += 12; 
+    }
+    
+    // If the birth day is later in the month than today's day,
+    // and it's not the case where we already decremented years (and adjusted months for it),
+    // we might need to adjust months down by one if we are not in the same month post year calculation.
+    // However, the above logic for years and months should correctly handle most cases.
+    // Let's refine month calculation for days.
+    // If today's date is less than birth date, it means a full month hasn't passed yet for the current month difference.
+    if (today.getDate() < birthDate.getDate() && !(today.getMonth() === birthDate.getMonth() && today.getFullYear() === birthDate.getFullYear())) {
+        // If we didn't cross a year boundary in the initial month check (e.g. Jan 15 today, birth Feb 20 of same year)
+        // months would be -1, then becomes 11, years decremented. This is correct.
+        // If today is April 15, birth March 20.
+        // years = 0 (assuming same year for simplicity of this sub-example)
+        // months = April(3) - March(2) = 1.
+        // today.getDate()(15) < birthDate.getDate()(20) is true. So, one full month hasn't passed.
+        // So, months should be 0 in this specific scenario.
+        // The initial `months += 12` when `years--` handles borrowing from the year.
+        // This condition is tricky. Let's simplify: the previous logic for years is mostly fine.
+        // The month adjustment is the key.
+
+        // If we already adjusted months because years were decremented (months was negative),
+        // then months are now (12 - diff). If today's day is still less, it means one of those 12 months isn't "full".
+        // Example: DOB 2000-03-27, Today 2024-03-15
+        // years = 24. months = 0. today.getDate() (15) < birthDate.getDate() (27) -> years = 23. months = 12. (Correct)
+        // Then, if today.getDate() (15) < birthDate.getDate() (27), months should be 11.
+        // This seems like it might double-dip or needs careful thought.
+
+        // Let's use a more standard approach:
+        // Calculate total months first, then derive years and months.
+    }
+
+
+    // Recalculate with a clearer approach for months:
+    let ageYears = today.getFullYear() - birthDate.getFullYear();
+    let ageMonths = today.getMonth() - birthDate.getMonth();
+    let ageDays = today.getDate() - birthDate.getDate();
+
+    if (ageDays < 0) {
+        // Borrow a month
+        ageMonths--;
+        // Add days in the previous month (approximation, good enough for month count)
+        // A more precise way would be `new Date(today.getFullYear(), today.getMonth(), 0).getDate()`
+        // but for month calculation, this detail is not strictly needed if we only care about months.
+    }
+
+    if (ageMonths < 0) {
+        ageYears--;
+        ageMonths += 12;
+    }
+    
+    let result = "";
+    if (ageYears > 0) {
+        result += ageYears + (ageYears === 1 ? " year" : " years");
+    }
+    
+    if (ageMonths > 0) {
+        if (result.length > 0) {
+            result += " and ";
+        }
+        result += ageMonths + (ageMonths === 1 ? " month" : " months");
+    } else if (ageYears === 0 && ageMonths === 0) { 
+        // If age is 0 years and 0 months (e.g. less than a month old, or on birthday)
+        // We could show days, or just "0 months" or "Newly born"
+        // For this request, if 0 months and 0 years, let's ensure it says something like "0 months" or is handled.
+        // If result is still empty, it means 0 years and 0 months.
+        if (result.length === 0) {
+             result = "0 months"; // Or handle very young ages (days) if needed, but let's stick to months.
+        }
+    }
+    
+    // If age is 0 years and 0 months, but some days old.
+    // The current logic might result in "0 months" if less than a month.
+    // If exactly on birthday, it will be "X years" (ageMonths will be 0).
+    // If age is 0 years and >0 months, it will be "Y months".
+
+    return result;
+  }
+
+  // DOB: 27 March 2000.
+  const dob = "2000-03-27"; 
+  const ageString = calculateAgeWithMonths(dob);
+  document.getElementById("dynamic-age").textContent = ageString;
+</script>
   </body>
 </html>
